@@ -5,7 +5,7 @@
 <div id="backgrounds-data" style="display:none"><%= JSON.stringify(backgrounds) %></div>
 <div id="character-data" style="display:none"><%= JSON.stringify(character) %></div>
 
-<form action="/kuthite/<%= character._id %>?_method=PUT" method="POST">
+<form action="/<%= character._id %>?_method=PUT" method="POST">
     <div class="row">
         <h3>Edit <%= character.name %></h3>
     </div>
