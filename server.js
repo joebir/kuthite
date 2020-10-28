@@ -47,6 +47,10 @@ const port = process.env.PORT;
 app.listen(port, () => console.log(`listening on ${port}`));
 
 app.get("/", (req, res) => {
+    res.redirect("/kuthite");
+})
+
+app.get("/kuthite/", (req, res) => {
     Character.find({}, (error, allCharacters) => {
         res.render("index.ejs", {
             characters: allCharacters
@@ -54,7 +58,7 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/create", (req, res) => {
+app.get("/kuthite/create", (req, res) => {
     res.render("new.ejs", {
         classes: allClasses,
         ancestries: allAncestries,
@@ -62,14 +66,14 @@ app.get("/create", (req, res) => {
     });
 })
 
-app.post("/create", (req, res) => {
+app.post("/kuthite/create", (req, res) => {
     processReqBodyChecks(req.body);
     Character.create(req.body, (error, createdCharacter) => {
         res.redirect("/");
     });
 });
 
-app.get("/:id", (req, res) => {
+app.get("/kuthite/:id", (req, res) => {
     Character.findById(req.params.id, (err, foundCharacter) => {
         res.render("show.ejs", {
             character: foundCharacter,
@@ -84,7 +88,7 @@ app.delete("/:id", (req, res) => {
     });
 });
 
-app.get("/:id/edit", (req, res) => {
+app.get("/kuthite/:id/edit", (req, res) => {
     Character.findById(req.params.id, (err, foundCharacter) => {
         res.render("edit.ejs", {
             character: foundCharacter,
@@ -95,7 +99,7 @@ app.get("/:id/edit", (req, res) => {
     });
 });
 
-app.put("/:id", (req, res) => {
+app.put("/kuthite/:id", (req, res) => {
     processReqBodyChecks(req.body);
     Character.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
@@ -115,7 +119,7 @@ app.put("/:id", (req, res) => {
         backgroundBoosts: req.body.backgroundBoosts,
         classBoost: req.body.classBoost,
         freeBoosts: req.body.freeBoosts
-    }, () => res.redirect("/"));
+    }, () => res.redirect("/kuthite"));
 });
 
 const processReqBodyChecks = (reqBody) => {

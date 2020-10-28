@@ -9,15 +9,15 @@
             <p><%= character.ancestry %> <%= character.class %></p>
         </div>
         <div class="card-action">
-            <a href="/<%= character._id %>" class="btn-flat">Details</a>
-            <a href="/<%= character._id %>/edit" class="btn-flat"><i class="material-icons">edit</i></a>
+            <a href="/kuthite/<%= character._id %>" class="btn-flat">Details</a>
+            <a href="/kuthite/<%= character._id %>/edit" class="btn-flat"><i class="material-icons">edit</i></a>
             <button data-target="delete-<%= character._id %>"
                 class="btn-flat modal-trigger material-icons red-text text-darken-2">delete</button>
         </div>
     </div>
     <div id="delete-<%= character._id %>" class="modal">
         <div class="modal-content">
-            <form action="/<%= character._id %>?_method=DELETE" method="POST">
+            <form action="/kuthite/<%= character._id %>?_method=DELETE" method="POST">
                 <p class="flow-text">This action can't be undone. Are you sure you want to delete
                     <%= character.name %>?</p>
                 <btn class="btn modal-close waves-effect waves-green">Cancel</btn>
