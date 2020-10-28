@@ -1,0 +1,4 @@
+# Kuthite
+My second project for General Assembly that began with extremely lofty goals of a character creator for levels 1 to 5 for Pathfinder 2nd Edition. As it turns out, even that scope was a lot for just one week. Right now it can successfully filter available options based on current selections to pick Ancestry, Heritage, Background, Class, subclasses, and ability scores for a level 1 character.
+
+This app uses Node.js, Express, EJS, Mongoose, Method Override, jQuery, and jsdom. Currently the options are sent from JSON files, server-side dynamic population is done using EJS, and client-side dynamic population is done using jQuery and jsdom. Data is stored in a Mongo database.

@@ -3,6 +3,7 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const fs = require("fs");
+require("dotenv").config();
 
 const Character = require("./models/characters.js");
 
@@ -25,7 +26,7 @@ app.use(express.urlencoded({
 }));
 app.use(methodOverride("_method"));
 
-const mongoConnectionString = "mongodb://localhost:27017/kuthite"
+const mongoConnectionString = process.env.MONGODBURI
 mongoose.connect(mongoConnectionString, {
     useNewUrlParser: true
 });
@@ -42,7 +43,7 @@ const allAncestries = JSON.parse(rawAncestries);
 const rawBackgrounds = fs.readFileSync("./data/backgrounds.json");
 const allBackgrounds = JSON.parse(rawBackgrounds);
 
-const port = 3000;
+const port = process.env.PORT;
 app.listen(port, () => console.log(`listening on ${port}`));
 
 app.get("/kuthite", (req, res) => {
