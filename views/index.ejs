@@ -9,8 +9,8 @@
             <p><%= character.ancestry %> <%= character.class %></p>
         </div>
         <div class="card-action">
-            <a href="/kuthite/<%= character._id %>" class="btn-flat">Details</a>
-            <a href="/kuthite/<%= character._id %>/edit" class="btn-flat"><i class="material-icons">edit</i></a>
+            <a href="/<%= character._id %>" class="btn-flat">Details</a>
+            <a href="/<%= character._id %>/edit" class="btn-flat"><i class="material-icons">edit</i></a>
             <button data-target="delete-<%= character._id %>"
                 class="btn-flat modal-trigger material-icons red-text text-darken-2">delete</button>
         </div>

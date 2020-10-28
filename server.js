@@ -46,7 +46,7 @@ const allBackgrounds = JSON.parse(rawBackgrounds);
 const port = process.env.PORT;
 app.listen(port, () => console.log(`listening on ${port}`));
 
-app.get("/kuthite", (req, res) => {
+app.get("/", (req, res) => {
     Character.find({}, (error, allCharacters) => {
         res.render("index.ejs", {
             characters: allCharacters
@@ -54,7 +54,7 @@ app.get("/kuthite", (req, res) => {
     });
 });
 
-app.get("/kuthite/create", (req, res) => {
+app.get("/create", (req, res) => {
     res.render("new.ejs", {
         classes: allClasses,
         ancestries: allAncestries,
@@ -62,14 +62,14 @@ app.get("/kuthite/create", (req, res) => {
     });
 })
 
-app.post("/kuthite/", (req, res) => {
+app.post("/", (req, res) => {
     processReqBodyChecks(req.body);
     Character.create(req.body, (error, createdCharacter) => {
-        res.redirect("/kuthite");
+        res.redirect("/");
     });
 });
 
-app.get("/kuthite/:id", (req, res) => {
+app.get("/:id", (req, res) => {
     Character.findById(req.params.id, (err, foundCharacter) => {
         res.render("show.ejs", {
             character: foundCharacter,
@@ -78,13 +78,13 @@ app.get("/kuthite/:id", (req, res) => {
     });
 });
 
-app.delete("/kuthite/:id", (req, res) => {
+app.delete("/:id", (req, res) => {
     Character.findByIdAndDelete(req.params.id, () => {
-        res.redirect("/kuthite");
+        res.redirect("/");
     });
 });
 
-app.get("/kuthite/:id/edit", (req, res) => {
+app.get("/:id/edit", (req, res) => {
     Character.findById(req.params.id, (err, foundCharacter) => {
         res.render("edit.ejs", {
             character: foundCharacter,
@@ -95,7 +95,7 @@ app.get("/kuthite/:id/edit", (req, res) => {
     });
 });
 
-app.put("/kuthite/:id", (req, res) => {
+app.put("/:id", (req, res) => {
     processReqBodyChecks(req.body);
     Character.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
@@ -115,7 +115,7 @@ app.put("/kuthite/:id", (req, res) => {
         backgroundBoosts: req.body.backgroundBoosts,
         classBoost: req.body.classBoost,
         freeBoosts: req.body.freeBoosts
-    }, () => res.redirect("/kuthite"));
+    }, () => res.redirect("/"));
 });
 
 const processReqBodyChecks = (reqBody) => {
