@@ -66,7 +66,7 @@ app.get("/kuthite/create", (req, res) => {
     });
 })
 
-app.post("/kuthite/create", (req, res) => {
+app.post("/kuthite", (req, res) => {
     processReqBodyChecks(req.body);
     Character.create(req.body, (error, createdCharacter) => {
         res.redirect("/");
