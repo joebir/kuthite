@@ -62,7 +62,7 @@ app.get("/create", (req, res) => {
     });
 })
 
-app.post("/", (req, res) => {
+app.post("/create", (req, res) => {
     processReqBodyChecks(req.body);
     Character.create(req.body, (error, createdCharacter) => {
         res.redirect("/");
@@ -130,7 +130,11 @@ const processReqBodyChecks = (reqBody) => {
     const freeProps = checkProps.filter(name => name.charAt(0) == "f");
     updateReqBodyBoostProperties(ancestryProps, reqBody.ancestryBoosts);
     updateReqBodyBoostProperties(backgroundProps, reqBody.backgroundBoosts);
-    clsProp[0] ? updateReqBodyBoostProperties(clsProp, clsBoost) : reqBody.classBoost = allClasses.find(cls => cls.name == reqBody.class).keyAbilities[0];
+    if (clsProp[0]) {
+        updateReqBodyBoostProperties(clsProp, clsBoost);
+        reqBody.classBoost = clsBoost[0];
+    } else
+        reqBody.classBoost = allClasses.find(cls => cls.name == reqBody.class).keyAbilities[0];
     updateReqBodyBoostProperties(freeProps, reqBody.freeBoosts);
     return reqBody;
 }
