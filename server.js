@@ -82,7 +82,7 @@ app.get("/kuthite/:id", (req, res) => {
     });
 });
 
-app.delete("/:id", (req, res) => {
+app.delete("/kuthite/:id", (req, res) => {
     Character.findByIdAndDelete(req.params.id, () => {
         res.redirect("/");
     });
