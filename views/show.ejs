@@ -1,0 +1,36 @@
+<%- include("./partials/header.ejs") %>
+<h3><%= character.name %></h3>
+<div class="row">
+    <div class="col m6 s12">
+        <p class="flow-text">Ancestry: <%= character.ancestry %></p>
+        <p class="flow-text">Heritage: <%= character.heritage %></p>
+        <p class="flow-text">Class: <%= character.class %></p>
+        <% if(character.subclass1) { %>
+        <p class="flow-text"><%= cls.subclass1Name %>: <%= character.subclass1 %></p>
+        <% } %>
+        <% if(character.subclass2) { %>
+        <p class="flow-text"><%= cls.subclass2Name %>: <%= character.subclass2 %></p>
+        <% } %>
+    </div>
+    <div class="col m6 s12">
+        <p class="flow-text">
+            Strength: <%= character.strength %>
+        </p>
+        <p class="flow-text">
+            Dexterity: <%= character.dexterity %>
+        </p>
+        <p class="flow-text">
+            Constitution: <%= character.constitution %>
+        </p>
+        <p class="flow-text">
+            Intelligence: <%= character.intelligence %>
+        </p>
+        <p class="flow-text">
+            Wisdom: <%= character.wisdom %>
+        </p>
+        <p class="flow-text">
+            Charisma: <%= character.charisma %>
+        </p>
+    </div>
+</div>
+<%- include("./partials/footer.ejs") %>

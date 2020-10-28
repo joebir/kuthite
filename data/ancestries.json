@@ -1,0 +1,61 @@
+[{
+    "name": "Dwarf",
+    "hp": 10,
+    "size": "Medium",
+    "speed": 20,
+    "abilityBoosts": ["Constitution", "Wisdom", "Free"],
+    "abilityFlaw": "Charisma",
+    "languages": ["Common", "Dwarven"],
+    "otherFeatures": ["Darkvision", "Clan Dagger"],
+    "heritages": ["Ancient-Blooded Dwarf", "Death Warden Dwarf", "Forge Dwarf", "Rock Dwarf", "Strong-Blooded Dwarf"]
+}, {
+    "name": "Elf",
+    "hp": 6,
+    "size": "Medium",
+    "speed": 30,
+    "abilityBoosts": ["Dexterity", "Intelligence", "Free"],
+    "abilityFlaw": "Constitution",
+    "languages": ["Common", "Elven"],
+    "otherFeatures": ["Low-Light Vision"],
+    "heritages": ["Arctic Elf", "Cavern Elf", "Seer Elf", "Whisper Elf", "Woodland Elf"]
+}, {
+    "name": "Gnome",
+    "hp": 8,
+    "size": "Small",
+    "speed": 25,
+    "abilityBoosts": ["Constitution", "Charisma", "Free"],
+    "abilityFlaw": "Strength",
+    "languages": ["Common", "Gnomish", "Sylvan"],
+    "otherFeatures": ["Low-Light Vision"],
+    "heritages": ["Chameleon Gnome", "Fey-Touched Gnome", "Sensate Gnome", "Umbral Gnome", "Wellspring Gnome"]
+}, {
+    "name": "Goblin",
+    "hp": 6,
+    "size": "Small",
+    "speed": 25,
+    "abilityBoosts": ["Dexterity", "Charisma", "Free"],
+    "abilityFlaw": "Wisdom",
+    "languages": ["Common", "Goblin"],
+    "otherFeatures": ["Darkvision"],
+    "heritages": ["Charhide Goblin", "Irongut Goblin", "Razortooth Goblin", "Snow Goblin", "Unbreakable Goblin"]
+}, {
+    "name": "Halfling",
+    "hp": 6,
+    "size": "Small",
+    "speed": 25,
+    "abilityBoosts": ["Dexterity", "Wisdom", "Free"],
+    "abilityFlaw": "Strength",
+    "languages": ["Common", "Halfling"],
+    "otherFeatures": ["Keen Eyes"],
+    "heritages": ["Gutsy Halfling", "Hillock Halfling", "Nomadic Halfling", "Twilight Halfling", "Wildwood Halfling"]
+}, {
+    "name": "Human",
+    "hp": 8,
+    "size": "Medium",
+    "speed": 25,
+    "abilityBoosts": ["Free", "Free"],
+    "abilityFlaw": null,
+    "languages": ["Common"],
+    "otherFeatures": null,
+    "heritages": ["Skilled Heritage", "Versatile Heritage", "Wintertouched Human"]
+}]

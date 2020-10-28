@@ -1,0 +1,85 @@
+[{
+    "name": "Alchemist",
+    "keyAbilities": ["Intelligence"],
+    "subclass1Name": "Research Field",
+    "subclass1": ["Bomber", "Chirurgeon", "Mutagenist"],
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Barbarian",
+    "keyAbilities": ["Strength"],
+    "subclass1Name": "Instinct",
+    "subclass1": ["Animal Instinct", "Dragon Instinct", "Fury Instinct", "Giant Instinct", "Spirit Instinct"],
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Bard",
+    "keyAbilities": ["Charisma"],
+    "subclass1Name": "Muse",
+    "subclass1": ["Enigma", "Maestro", "Polymath"],
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Champion",
+    "keyAbilities": ["Strength", "Dexterity"],
+    "subclass1Name": "Cause",
+    "subclass1": ["Paladin", "Redeemer", "Liberator", "Tyrant", "Desecrator", "Antipaladin"],
+    "subclass2Name": "Tenets",
+    "subclass2": ["Tenets of Good", "Tenets of Evil"]
+}, {
+    "name": "Cleric",
+    "keyAbilities": ["Wisdom"],
+    "subclass1Name": "Doctrine",
+    "subclass1": ["Cloistered Cleric", "Warpriest"],
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Druid",
+    "keyAbilities": ["Wisdom"],
+    "subclass1Name": "Druidic Order",
+    "subclass1": ["Animal", "Leaf", "Storm", "Wild"],
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Fighter",
+    "keyAbilities": ["Strength", "Dexterity"],
+    "subclass1Name": null,
+    "subclass1": null,
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Monk",
+    "keyAbilities": ["Strength", "Dexterity"],
+    "subclass1Name": null,
+    "subclass1": null,
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Ranger",
+    "keyAbilities": ["Strength", "Dexterity"],
+    "subclass1Name": "Hunter's Edge",
+    "subclass1": ["Flurry", "Outwit", "Precision"],
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Rogue",
+    "keyAbilities": ["Strength", "Dexterity", "Charisma"],
+    "subclass1Name": "Rogue's Racket",
+    "subclass1": ["Ruffian", "Scoundrel", "Thief"],
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Sorcerer",
+    "keyAbilities": ["Charisma"],
+    "subclass1Name": "Bloodline",
+    "subclass1": ["Aberrant", "Angelic", "Demonic", "Diabolic", "Draconic", "Elemental", "Fey", "Hag", "Imperial", "Undead"],
+    "subclass2Name": null,
+    "subclass2": null
+}, {
+    "name": "Wizard",
+    "keyAbilities": ["Intelligence"],
+    "subclass1Name": "Arcane School",
+    "subclass1": ["Abjuration", "Conjuration", "Divination", "Enchantment", "Evocation", "Illusion", "Necromancy", "Transmutation", "Universalist"],
+    "subclass2Name": "Arcane Thesis",
+    "subclass2": ["Improved Familiar Attunement", "Metamagical Experimentation", "Spell Blending", "Spell Substitution"]
+}]

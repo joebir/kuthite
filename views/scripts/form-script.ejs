@@ -1,0 +1,215 @@
+<script>
+    $(() => {
+        const ancestries = JSON.parse($("#ancestries-data").text());
+        const backgrounds = JSON.parse($("#backgrounds-data").text());
+        const classes = JSON.parse($("#classes-data").text());
+
+        let abilityFlaw = null;
+
+        $("#ancestries-data").remove();
+        $("#backgrounds-data").remove();
+        $("#classes-data").remove();
+        $("#heritage-dummy").remove();
+
+        $("select").formSelect();
+
+        $("#ancestry-select").on("change", () => {
+            const currentAncestryName = $("#ancestry-select").val();
+            const currentAncestry = ancestries.find(ancestry => ancestry.name == currentAncestryName);
+            setupHeritageSelect(currentAncestry);
+            abilityFlaw = currentAncestry.abilityFlaw;
+            setupAncestryBoosts(currentAncestry);
+        });
+        $("#background-select").on("change", () => {
+            const currentBackgroundName = $("#background-select").val();
+            const currentBackground = backgrounds.find(background => background.name ==
+                currentBackgroundName);
+            setupBackgroundBoosts(currentBackground);
+        });
+        $("#class-select").on("change", () => {
+            const currentClassName = $("#class-select").val();
+            const currentClass = classes.find(cls => cls.name == currentClassName);
+            setupSubclassSelects(currentClass);
+            setupClassBoost(currentClass)
+        });
+
+        const setupHeritageSelect = (ancestry) => {
+            $("#heritage-select").empty();
+            $("#heritage-select").append($("<option>").val("").text("Heritage")
+                .prop("disabled", true).prop("selected", true));
+            ancestry.heritages.forEach(heritage => {
+                const $option = $("<option>").val(heritage).text(heritage);
+                $("#heritage-select").append($option);
+            });
+            $("#heritage-select").formSelect();
+        }
+
+        const setupAncestryBoosts = (ancestry) => {
+            const $aSection = $("#ancestry-boost-section");
+            resetSection($aSection);
+            ancestry.abilityBoosts.forEach(boost => {
+                if (boost != "Free") {
+                    $(`#a${boost.substring(0, 3)}Check`).prop("checked", true).prop("disabled",
+                        true);
+                }
+            });
+
+            if (ancestry.abilityFlaw != null) {
+                $(`#a${ancestry.abilityFlaw.substring(0, 3)}Check`).siblings("span").addClass("red-text");
+            }
+
+            $aSection.find("input").on("change", () => {
+                if (getCheckNum($aSection.find("input")) >= ancestry.abilityBoosts.length)
+                    disableUnchecked($aSection.find("input"));
+                else
+                    enableUnchecked($aSection.find("input"));
+            });
+            updateScores();
+        }
+
+        const setupBackgroundBoosts = (background) => {
+            const $bSection = $("#background-boost-section");
+            resetSection($bSection);
+            background.possibleBoosts.forEach(boost => {
+                $(`#b${boost.substring(0, 3)}Check`).attr("data-req", true)
+                    .siblings("span")
+                    .addClass("blue-text")
+            });
+
+            const $requiredBoosts = $bSection.find("input").filter((index, obj) =>
+                $(obj).attr("data-req"));
+
+            $bSection.find("input").on("click", () => {
+                if (getCheckNum($bSection.find("input")) >= 2)
+                    disableUnchecked($bSection.find("input"))
+                else if (getCheckNum($bSection.find("input")) == 1 &&
+                    getCheckNum($requiredBoosts) == 0) {
+                    disableUnchecked($bSection.find("input")
+                        .filter((index, obj) => !$(obj).attr("data-req")));
+                    enableUnchecked($requiredBoosts);
+                } else
+                    enableUnchecked($bSection.find("input"));
+            });
+            updateScores();
+        }
+
+        const setupSubclassSelects = (cls) => {
+            const $subclass1 = $("#subclass1-div").empty().hide();
+            const $subclass2 = $("#subclass2-div").empty().hide();
+            if(cls.subclass1Name) {
+                const $sc1Select = $("<select>").prop("id", "subclass1-select").prop("name", "subclass1");
+                const $defaultOption = $("<option>").text(cls.subclass1Name).val("").prop("disabled", true).prop("selected", true);
+                $sc1Select.append($defaultOption);
+
+                cls.subclass1.forEach(subclassName => {
+                    const $option = $("<option>").text(subclassName).val(subclassName);
+                    $sc1Select.append($option);
+                });
+
+                $subclass1.append($sc1Select);
+                $subclass1.show();
+                $sc1Select.formSelect();
+            }
+            if(cls.subclass2Name) {
+                const $sc2Select = $("<select>").prop("id", "subclass2-select").prop("name", "subclass2");
+                const $defaultOption = $("<option>").text(cls.subclass2Name).val("").prop("disabled", true).prop("selected", true);
+                $sc2Select.append($defaultOption);
+
+                cls.subclass2.forEach(subclassName => {
+                    const $option = $("<option>").text(subclassName).val(subclassName);
+                    $sc2Select.append($option);
+                });
+
+                $subclass2.append($sc2Select);
+                $subclass2.show();
+                $sc2Select.formSelect();
+            }
+        }
+
+        const setupClassBoost = (cls) => {
+            const $cSection = $("#class-boost-section");
+            resetSection($cSection);
+            $cSection.find("input").prop("disabled", true);
+            if (cls.keyAbilities.length == 1) {
+                console.log(`c${cls.keyAbilities[0].substring(0, 3)}Check`)
+                $(`#c${cls.keyAbilities[0].substring(0, 3)}Check`).prop("checked", true);
+            } else {
+                cls.keyAbilities.forEach(ability =>
+                    $(`#c${ability.substring(0, 3)}Check`).attr("data-classkey", true)
+                );
+                const $keyAbilities = $cSection.find("input").filter((index, obj) =>
+                    $(obj).attr("data-classkey"));
+                enableUnchecked($keyAbilities);
+                $keyAbilities.on("click", () => {
+                    if (getCheckNum($keyAbilities))
+                        disableUnchecked($keyAbilities);
+                    else
+                        enableUnchecked($keyAbilities);
+                })
+            }
+            updateScores();
+        }
+
+        $("#free-boost-section").find("input").on("click", () => {
+            if (getCheckNum($("#free-boost-section").find("input")) >= 4)
+                disableUnchecked($("#free-boost-section").find("input"));
+            else
+                enableUnchecked($("#free-boost-section").find("input"));
+        })
+
+        const resetSection = ($section) => {
+            $section.find("input").prop("checked", false).prop("disabled", false)
+                .removeAttr("data-req data-classkey").off("click")
+                .siblings().removeClass("blue-text red-text");
+        }
+
+        const disableUnchecked = ($checkboxSelector) => {
+            $checkboxSelector.each((index, obj) => {
+                if (!$(obj).prop("checked"))
+                    $(obj).prop("disabled", true);
+            });
+        }
+
+        const enableUnchecked = ($checkboxSelector) => {
+            $checkboxSelector.each((index, obj) => {
+                if (!$(obj).prop("checked"))
+                    $(obj).prop("disabled", false);
+            });
+        }
+
+        const getCheckNum = ($checkboxSelector) => {
+            return $checkboxSelector.filter((index, obj) => $(obj).prop("checked")).length;
+        }
+
+        const updateScores = () => {
+            let str = 10 + (2 * getCheckNum($("input[data-ability='str'")));
+            let dex = 10 + (2 * getCheckNum($("input[data-ability='dex'")));
+            let con = 10 + (2 * getCheckNum($("input[data-ability='con'")));
+            let int = 10 + (2 * getCheckNum($("input[data-ability='int'")));
+            let wis = 10 + (2 * getCheckNum($("input[data-ability='wis'")));
+            let cha = 10 + (2 * getCheckNum($("input[data-ability='cha'")));
+
+            if (abilityFlaw == "Strength")
+                str -= 2;
+            else if (abilityFlaw == "Dexterity")
+                dex -= 2;
+            else if (abilityFlaw == "Constitution")
+                con -= 2;
+            else if (abilityFlaw == "Intelligence")
+                int -= 2;
+            else if (abilityFlaw == "Wisdom")
+                wis -= 2;
+            else if (abilityFlaw == "Charisma")
+                cha -= 2;
+
+            $("input[name='strength'").val(str);
+            $("input[name='dexterity'").val(dex);
+            $("input[name='constitution'").val(con);
+            $("input[name='intelligence'").val(int);
+            $("input[name='wisdom'").val(wis);
+            $("input[name='charisma'").val(cha);
+        }
+
+        $("#boost-row").find("input").on("change", updateScores);
+    });
+</script>

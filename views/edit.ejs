@@ -1,0 +1,245 @@
+<%- include("./partials/header.ejs") %>
+
+<div id="classes-data" style="display:none"><%= JSON.stringify(classes) %></div>
+<div id="ancestries-data" style="display:none"><%= JSON.stringify(ancestries) %></div>
+<div id="backgrounds-data" style="display:none"><%= JSON.stringify(backgrounds) %></div>
+<div id="character-data" style="display:none"><%= JSON.stringify(character) %></div>
+
+<form action="/kuthite/<%= character._id %>?_method=PUT" method="POST">
+    <div class="row">
+        <h3>Edit <%= character.name %></h3>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" name="name" required value="<%= character.name %>">
+            <label for="name" class="active">Name</label>
+        </div>
+        <div class="input-field col m6">
+            <select id="ancestry-select" name="ancestry">
+                <option value="" disabled selected>Ancestry</option>
+                <% ancestries.forEach(ancestry => { %>
+                <option value="<%= ancestry.name %>"><%= ancestry.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="input-field col m6">
+            <select id="heritage-select" name="heritage">
+                <option value="" disabled selected>Heritage</option>
+                <option value="" disabled id="heritage-dummy">Dummy Option</option>
+            </select>
+        </div>
+        <div class="input-field col m6">
+            <select id="background-select" name="background">
+                <option value="" disabled selected>Background</option>
+                <% backgrounds.forEach(background => { %>
+                <option value="<%= background.name %>"><%= background.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="input-field col m6">
+            <select id="class-select" name="class">
+                <option value="" disabled selected>Class</option>
+                <% classes.forEach(item => { %>
+                <option value="<%= item.name %>"><%= item.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="input-field col m6" id="subclass1-div" style="display:none"></div>
+        <div class="input-field col m6" id="subclass2-div" style="display:none"></div>
+    </div>
+    <div class="row" id="boost-row">
+        <div id="ancestry-boost-section" class="col m2 offset-m1">
+            <h6>Ancestry</h6>
+            <p>
+                <label for="aStrCheck">
+                    <input id="aStrCheck" name="aStrCheck" type="checkbox" disabled="true" data-ability="str">
+                    <span>Strength</span>
+                </label>
+            </p>
+            <p>
+                <label for="aDexCheck">
+                    <input id="aDexCheck" name="aDexCheck" type="checkbox" disabled="true" data-ability="dex">
+                    <span>Dexterity</span>
+                </label>
+            </p>
+            <p>
+                <label for="aConCheck">
+                    <input id="aConCheck" name="aIntCheck" type="checkbox" disabled="true" data-ability="con">
+                    <span>Constitution</span>
+                </label>
+            </p>
+            <p>
+                <label for="aIntCheck">
+                    <input id="aIntCheck" name="aIntCheck" type="checkbox" disabled="true" data-ability="int">
+                    <span>Intelligence</span>
+                </label>
+            </p>
+            <p>
+                <label for="aWisCheck">
+                    <input id="aWisCheck" name="aWisCheck" type="checkbox" disabled="true" data-ability="wis">
+                    <span>Wisdom</span>
+                </label>
+            </p>
+            <p>
+                <label for="aChaCheck">
+                    <input id="aChaCheck" name="aChaCheck" type="checkbox" disabled="true" data-ability="cha">
+                    <span>Charisma</span>
+                </label>
+            </p>
+        </div>
+        <div id="background-boost-section" class="col m2">
+            <h6>Background</h6>
+            <p>
+                <label for="bStrCheck">
+                    <input id="bStrCheck" name="bStrCheck" type="checkbox" disabled="true" data-ability="str">
+                    <span>Strength</span>
+                </label>
+            </p>
+            <p>
+                <label for="bDexCheck">
+                    <input id="bDexCheck" name="bDexCheck" type="checkbox" disabled="true" data-ability="dex">
+                    <span>Dexterity</span>
+                </label>
+            </p>
+            <p>
+                <label for="bConCheck">
+                    <input id="bConCheck" name="bConCheck" type="checkbox" disabled="true" data-ability="con">
+                    <span>Constitution</span>
+                </label>
+            </p>
+            <p>
+                <label for="bIntCheck">
+                    <input id="bIntCheck" name="bIntCheck" type="checkbox" disabled="true" data-ability="int">
+                    <span>Intelligence</span>
+                </label>
+            </p>
+            <p>
+                <label for="bWisCheck">
+                    <input id="bWisCheck" name="bWisCheck" type="checkbox" disabled="true" data-ability="wis">
+                    <span>Wisdom</span>
+                </label>
+            </p>
+            <p>
+                <label for="bChaCheck">
+                    <input id="bChaCheck" name="bChaCheck" type="checkbox" disabled="true" data-ability="cha">
+                    <span>Charisma</span>
+                </label>
+            </p>
+        </div>
+        <div id="class-boost-section" class="col m2">
+            <h6>Class</h6>
+            <p>
+                <label for="cStrCheck">
+                    <input id="cStrCheck" name="cStrCheck" type="checkbox" disabled="true" data-ability="str">
+                    <span>Strength</span>
+                </label>
+            </p>
+            <p>
+                <label for="cDexCheck">
+                    <input id="cDexCheck" name="cDexCheck" type="checkbox" disabled="true" data-ability="dex">
+                    <span>Dexterity</span>
+                </label>
+            </p>
+            <p>
+                <label for="cConCheck">
+                    <input id="cConCheck" name="cConCheck" type="checkbox" disabled="true" data-ability="int">
+                    <span>Constitution</span>
+                </label>
+            </p>
+            <p>
+                <label for="cIntCheck">
+                    <input id="cIntCheck" name="cIntCheck" type="checkbox" disabled="true" data-ability="int">
+                    <span>Intelligence</span>
+                </label>
+            </p>
+            <p>
+                <label for="cWisCheck">
+                    <input id="aWisCheck" name="cWisCheck" type="checkbox" disabled="true" data-ability="wis">
+                    <span>Wisdom</span>
+                </label>
+            </p>
+            <p>
+                <label for="cChaCheck">
+                    <input id="cChaCheck" name="cChaCheck" type="checkbox" disabled="true" data-ability="cha">
+                    <span>Charisma</span>
+                </label>
+            </p>
+        </div>
+        <div id="free-boost-section" class="col m2">
+            <h6>Free</h6>
+            <p>
+                <label for="fStrCheck">
+                    <input id="fStrCheck" name="fStrCheck" type="checkbox" data-ability="str">
+                    <span>Strength</span>
+                </label>
+            </p>
+            <p>
+                <label for="fDexCheck">
+                    <input id="fDexCheck" name="fDexCheck" type="checkbox" data-ability="dex">
+                    <span>Dexterity</span>
+                </label>
+            </p>
+            <p>
+                <label for="fConCheck">
+                    <input id="fConCheck" name="fConCheck" type="checkbox" data-ability="con">
+                    <span>Constitution</span>
+                </label>
+            </p>
+            <p>
+                <label for="fIntCheck">
+                    <input id="fIntCheck" name="fIntCheck" type="checkbox" data-ability="int">
+                    <span>Intelligence</span>
+                </label>
+            </p>
+            <p>
+                <label for="fWisCheck">
+                    <input id="fWisCheck" name="fWisCheck" type="checkbox" data-ability="wis">
+                    <span>Wisdom</span>
+                </label>
+            </p>
+            <p>
+                <label for="fChaCheck">
+                    <input id="fChaCheck" name="fChaCheck" type="checkbox" data-ability="cha">
+                    <span>Charisma</span>
+                </label>
+            </p>
+        </div>
+        <div class="col m1">
+            <div class="input-field">
+                <input type="number" name="strength" value="10" readonly="true">
+                <label for="strength" class="active">Strength</label>
+            </div>
+            <div class="input-field">
+                <input type="number" name="dexterity" value="10" readonly="true">
+                <label for="strength" class="active">Dexterity</label>
+            </div>
+            <div class="input-field">
+                <input type="number" name="constitution" value="10" readonly="true">
+                <label for="constitution" class="active">Constitution</label>
+            </div>
+        </div>
+        <div class="col m1">
+            <div class="input-field">
+                <input type="number" name="intelligence" value="10" readonly="true">
+                <label for="intelligence" class="active">Intelligence</label>
+            </div>
+            <div class="input-field">
+                <input type="number" name="wisdom" value="10" readonly="true">
+                <label for="wisdom" class="active">Wisdom</label>
+            </div>
+            <div class="input-field">
+                <input type="number" name="charisma" value="10" readonly="true">
+                <label for="charisma" class="active">Charisma</label>
+            </div>
+        </div>
+    </div>
+    <div class="row right-align">
+        <a href="/kuthite" class="btn">Cancel</a>
+        <button class="btn" type="submit">Edit</button>
+    </div>
+</form>
+
+<%- include("./partials/script-footer.ejs") %>
+<%- include("./scripts/form-script.ejs") %>
+<%- include("./scripts/edit-script.ejs") %>
+<%- include("./partials/footer.ejs") %>

@@ -1,0 +1,42 @@
+<script>
+    $(() => {
+        const character = JSON.parse($("#character-data").text());
+        $("#character-data").remove();
+
+        $("#ancestry-select").val(character.ancestry);
+        $("#ancestry-select").trigger("change");
+        $("#ancestry-select").formSelect();
+        character.ancestryBoosts.forEach(boost => {
+            $(`#a${boost.substring(0, 3)}Check`).trigger("click");
+        });
+
+        $("#heritage-select").val(character.heritage);
+        $("#heritage-select").trigger("change");
+        $("#heritage-select").formSelect();
+
+        $("#background-select").val(character.background);
+        $("#background-select").trigger("change");
+        $("#background-select").formSelect();
+        character.backgroundBoosts.forEach(boost => {
+            $(`#b${boost.substring(0, 3)}Check`).trigger("click");
+        });
+
+        $("#class-select").val(character.class);
+        $("#class-select").trigger("change");
+        $("#class-select").formSelect();
+        $(`#c${character.classBoost.substring(0, 3)}Check`).trigger("click");
+
+        if (character.subclass1) {
+            $("#subclass1-select").val(character.subclass1);
+            $("#subclass1-select").formSelect();
+        }
+        if (character.subclass2) {
+            $("#subclass1-select").val(character.subclass2);
+            $("#subclass1-select").formSelect();
+        }
+
+        character.freeBoosts.forEach(boost => {
+            $(`#f${boost.substring(0, 3)}Check`).trigger("click");
+        });
+    })
+</script>

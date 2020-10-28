@@ -1,0 +1,205 @@
+[{
+    "name": "Acolyte",
+    "skill": ["Religion"],
+    "lore": ["Scribing"],
+    "skillFeat": ["Student of the Canon"],
+    "possibleBoosts": ["Intelligence", "Wisdom"]
+}, {
+    "name": "Acrobat",
+    "skill": ["Acrobatics"],
+    "lore": ["Circus"],
+    "skillFeat": ["Steady Balance"],
+    "possibleBoosts": ["Strength", "Dexterity"]
+}, {
+    "name": "Animal Whisperer",
+    "skill": ["Nature"],
+    "lore": ["[Terrain]"],
+    "skillFeat": ["Train Animal"],
+    "possibleBoosts": ["Wisdom", "Charisma"]
+}, {
+    "name": "Artisan",
+    "skill": ["Crafting"],
+    "lore": ["Guild"],
+    "skillFeat": ["Specialty Crafting"],
+    "possibleBoosts": ["Strength", "Intelligence"]
+}, {
+    "name": "Artist",
+    "skill": ["Crafting"],
+    "lore": ["Art"],
+    "skillFeat": ["Specialty Crafting"],
+    "possibleBoosts": ["Dexterity", "Charisma"]
+}, {
+    "name": "Barkeep",
+    "skill": ["Diplomacy"],
+    "lore": ["Alcohol"],
+    "skillFeat": ["Hobnobber"],
+    "possibleBoosts": ["Constitution", "Charisma"]
+}, {
+    "name": "Bounty Hunter",
+    "skill": ["Survival"],
+    "lore": ["Legal"],
+    "skillFeat": ["Experienced Tracker"],
+    "possibleBoosts": ["Strength", "Wisdom"]
+}, {
+    "name": "Charlatan",
+    "skill": ["Deception"],
+    "lore": ["Underworld"],
+    "skillFeat": ["Charming Liar"],
+    "possibleBoosts": ["Dexterity", "Charisma"]
+}, {
+    "name": "Criminal",
+    "skill": ["Stealth"],
+    "lore": ["Underworld"],
+    "skillFeat": ["Experienced Smuggler"],
+    "possibleBoosts": ["Dexterity", "Intelligence"]
+}, {
+    "name": "Detective",
+    "skill": ["Society"],
+    "lore": ["Underworld"],
+    "skillFeat": ["Streetwise"],
+    "possibleBoosts": ["Intelligence", "Wisdom"]
+}, {
+    "name": "Emissary",
+    "skill": ["Society"],
+    "lore": ["[City]"],
+    "skillFeat": ["Multilingual"],
+    "possibleBoosts": ["Intelligence", "Charisma"]
+}, {
+    "name": "Entertainer",
+    "skill": ["Performance"],
+    "lore": ["Theater"],
+    "skillFeat": ["Fascinating Performance"],
+    "possibleBoosts": ["Dexterity", "Charisma"]
+}, {
+    "name": "Farmhand",
+    "skill": ["Athletics"],
+    "lore": ["Farming"],
+    "skillFeat": ["Assurance (Athletics)"],
+    "possibleBoosts": ["Constitution", "Wisdom"]
+}, {
+    "name": "Field Medic",
+    "skill": ["Medicine"],
+    "lore": ["Warfare"],
+    "skillFeat": ["Battle Medicine"],
+    "possibleBoosts": ["Constitution", "Wisdom"]
+}, {
+    "name": "Fortune Teller",
+    "skill": ["Occultism"],
+    "lore": ["Fortune-Telling"],
+    "skillFeat": ["Oddity Identification"],
+    "possibleBoosts": ["Intelligence", "Charisma"]
+}, {
+    "name": "Gambler",
+    "skill": "Deception",
+    "lore": ["Games"],
+    "skillFeat": ["Lie to Me"],
+    "possibleBoosts": ["Dexterity", "Charisma"]
+}, {
+    "name": "Gladiator",
+    "skill": ["Performance"],
+    "lore": ["Gladiatorial"],
+    "skillFeat": ["Impressive Performance"],
+    "possibleBoosts": ["Strength", "Charisma"]
+}, {
+    "name": "Guard",
+    "skill": ["Intimidation"],
+    "lore": ["Legal", "Warfare"],
+    "skillFeat": ["Quick Coercion"],
+    "possibleBoosts": ["Strength", "Charisma"]
+}, {
+    "name": "Herbalist",
+    "skill": ["Nature"],
+    "lore": ["Herbalism"],
+    "skillFeat": ["Natural Medicine"],
+    "possibleBoosts": ["Constitution", "Wisdom"]
+}, {
+    "name": "Hermit",
+    "skill": ["Crafting"],
+    "lore": ["Art"],
+    "skillFeat": ["Specialty Crafting"],
+    "possibleBoosts": ["Dexterity", "Charisma"]
+}, {
+    "name": "Hunter",
+    "skill": ["Survival"],
+    "lore": ["Tanning"],
+    "skillFeat": ["Survey Wildlife"],
+    "possibleBoosts": ["Dexterity", "Wisdom"]
+}, {
+    "name": "Laborer",
+    "skill": ["Athletics"],
+    "lore": ["Labor"],
+    "skillFeat": ["Hefty Hauler"],
+    "possibleBoosts": ["Strength", "Constitution"]
+}, {
+    "name": "Martial Disciple",
+    "skill": ["Acrobatics", "Athletics"],
+    "lore": ["Warfare"],
+    "skillFeat": ["Cat Fall", "Quick Jump"],
+    "possibleBoosts": ["Strength", "Dexterity"]
+}, {
+    "name": "Merchant",
+    "skill": ["Diplomacy"],
+    "lore": ["Mercantile"],
+    "skillFeat": ["Bargain Hunter"],
+    "possibleBoosts": ["Intelligence", "Charisma"]
+}, {
+    "name": "Miner",
+    "skill": ["Survival"],
+    "lore": ["Mining"],
+    "skillFeat": ["Terrain Expertise (underground)"],
+    "possibleBoosts": ["Strength", "Wisdom"]
+}, {
+    "name": "Noble",
+    "skill": ["Society"],
+    "lore": ["Geneaology", "Heraldry"],
+    "skillFeat": ["Courtly Graces"],
+    "possibleBoosts": ["Intelligence", "Charisma"]
+}, {
+    "name": "Nomad",
+    "skill": ["Survival"],
+    "lore": ["[Terrain]"],
+    "skillFeat": ["Assurance (Survival)"],
+    "possibleBoosts": ["Constitution", "Wisdom"]
+}, {
+    "name": "Prisoner",
+    "skill": ["Stealth"],
+    "lore": ["Underworld"],
+    "skillFeat": ["Experienced Smuggler"],
+    "possibleBoosts": ["Strength", "Constitution"]
+}, {
+    "name": "Sailor",
+    "skill": ["Athletics"],
+    "lore": ["Sailing"],
+    "skillFeat": ["Underwater Marauder"],
+    "possibleBoosts": ["Strength", "Dexterity"]
+}, {
+    "name": "Scholar",
+    "skill": ["Arcana", "Nature", "Occultism", "Religion"],
+    "lore": ["Academia"],
+    "skillFeat": ["Assurance (Arcana)", "Assurance (Nature)", "Assurance (Occultism)", "Assurance (Religion)"],
+    "possibleBoosts": ["Intelligence", "Wisdom"]
+}, {
+    "name": "Scout",
+    "skill": ["Survival"],
+    "lore": ["[Terrain]"],
+    "skillFeat": ["Forager"],
+    "possibleBoosts": ["Dexterity", "Wisdom"]
+}, {
+    "name": "Street Urchin",
+    "skill": ["Thievery"],
+    "lore": ["[City]"],
+    "skillFeat": ["Pickpocket"],
+    "possibleBoosts": ["Dexterity", "Constitution"]
+}, {
+    "name": "Tinker",
+    "skill": ["Crafting"],
+    "lore": ["Engineering"],
+    "skillFeat": ["Specialty Crafting"],
+    "possibleBoosts": ["Dexterity", "Intelligence"]
+}, {
+    "name": "Warrior",
+    "skill": ["Intimidation"],
+    "lore": ["Warfare"],
+    "skillFeat": ["Intimidating Glare"],
+    "possibleBoosts": ["Strength", "Constitution"]
+}]
